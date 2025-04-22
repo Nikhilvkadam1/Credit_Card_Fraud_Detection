@@ -1,19 +1,73 @@
-#    **Credit Card Fraud Detection Using Machine Learning - Shiny App**
+# 💳 Credit Card Fraud Detection Using Machine Learning (Shiny App)
 
-This Shiny web application predicts the likelihood of a credit card transaction being fraudulent based on various transaction features. The app uses a Random Forest classifier, trained on a balanced dataset using the ROSE (Random Over-Sampling Examples) method, to make predictions.
+This repository contains an interactive Shiny web application that predicts whether a credit card transaction is **fraudulent** or **legitimate** using a **Random Forest** classifier. The app also provides visual insights from the dataset to help understand fraud patterns.
 
-Features:
-Prediction Section: Users can input transaction details such as distance from home, transaction history, and whether the transaction was online or used a chip. The model will predict if the transaction is fraudulent or legitimate.
-Data View: Displays a sample of the credit card transaction dataset with details about various transactions.
-Insights: Visualizes trends in the data with interactive plots:
-Fraud vs Legitimate Transactions: A bar chart showing the count of fraudulent and legitimate transactions.
-Online vs Offline Fraud: A comparison of fraudulent transactions in online vs offline purchases.
-Chip Usage in Fraud: Analyzes the role of chip usage in fraudulent transactions.
-Purchase Price Ratio by Fraud Type: Box plot to visualize how the purchase price ratio varies between fraudulent and legitimate transactions.
+---
 
-Technologies Used:
-R Programming: For data manipulation, modeling, and creating visualizations.
-Shiny: To build the interactive web interface.
-Random Forest: A machine learning algorithm used for fraud detection.
-ROSE Package: To balance the dataset by generating synthetic data for underrepresented classes.
-ggplot2: For data visualizations.
+## 🚀 Features
+
+### 🔍 Prediction
+- Input transaction details like:
+  - Distance from Home
+  - Distance from Last Transaction
+  - Ratio to Median Purchase Price
+  - Repeat Retailer
+  - Used Chip
+  - Used PIN Number
+  - Online Order
+- Click “Predict Fraud” to get a prediction result.
+
+### 📄 Data View
+- Displays a sample of the credit card transactions (first 100 rows).
+
+### 📊 Insights
+- **Fraud vs Legitimate Transactions**
+- **Online vs Offline Fraud**
+- **Chip Usage in Fraud**
+- **Purchase Price Ratio by Fraud Type**
+
+---
+
+## 🧠 Machine Learning
+
+- **Model**: Random Forest
+- **Data Balancing**: ROSE (Random Over Sampling Examples)
+- **Target Variable**: `fraud` (0 = Legitimate, 1 = Fraudulent)
+- **Training**: Performed on a balanced dataset to improve fraud detection accuracy.
+
+---
+
+## 🛠️ Technologies Used
+
+- `R`
+- `Shiny` & `shinydashboard` – For building the UI
+- `randomForest` – Machine learning model
+- `ROSE` – Dataset balancing
+- `ggplot2` – Data visualizations
+- `DT` – Interactive data table
+
+---
+
+## 📁 Dataset
+
+The dataset used (`card_transaction.csv`) contains transaction details with features such as:
+- Distance from home
+- Distance from last transaction
+- Purchase price ratio
+- Online order status
+- PIN and chip usage
+
+Make sure the dataset is placed in the root directory of the project.
+
+---
+
+## ▶️ Run Locally
+
+To run the app locally:
+
+```r
+# Install required packages if not already installed
+install.packages(c("shiny", "shinydashboard", "ggplot2", "DT", "randomForest", "ROSE"))
+
+# Run the app
+shiny::runApp()
